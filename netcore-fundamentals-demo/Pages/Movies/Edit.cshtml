@@ -1,0 +1,27 @@
+﻿@page "{movieId:int?}"
+@model netcore_fundamentals_demo.Pages.Movies.EditModel
+@{
+}
+
+<h2>Editing @Model.Movie.Name</h2>
+<form method="post">
+    <input type="hidden" asp-for="Movie.Id" />
+    <div class="form-group">
+        <label asp-for="Movie.Name"></label>
+        <input asp-for="Movie.Name" class="form-control" />
+        <span class="text-danger" asp-validation-for="Movie.Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Movie.NumberInStock"></label>
+        <input asp-for="Movie.NumberInStock" class="form-control" />
+        <span class="text-danger" asp-validation-for="Movie.NumberInStock"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Movie.Genre"></label>
+        <select class="form-control" asp-for="Movie.Genre"
+                asp-items="Model.Genre">
+        </select>
+        <span class="text-danger" asp-validation-for="Movie.Genre"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

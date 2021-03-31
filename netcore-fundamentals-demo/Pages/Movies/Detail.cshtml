@@ -1,0 +1,15 @@
+﻿@page "{movieId:int}"
+@model netcore_fundamentals_demo.Pages.Movies.DetailModel
+@{
+}
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">@Model.Message</div>
+}
+<h2>@Model.Movie.Name</h2>
+
+<div>Id: @Model.Movie.Id</div>
+<div>Name: @Model.Movie.Name</div>
+<div>Genre: @Model.Movie.Genre</div>
+
+<a asp-page="./Index" class="btn btn-light">All Movies</a>

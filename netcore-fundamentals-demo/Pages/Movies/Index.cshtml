@@ -1,0 +1,51 @@
+﻿@page
+@model netcore_fundamentals_demo.Pages.Movies.IndexModel
+@{
+}
+<h1>Movies</h1>
+
+<form method="get">
+    
+        <div class="input-group">
+            <input type="text" class="form-control" asp-for="SearchTerm"/>
+            <div class="input-group-append">
+                <button class="btn btn-secondary" type="button">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+</form>
+
+<table class="table">
+    @foreach(var movie in Model.Movies)
+    {
+    <tr>
+        <td>@movie.Id</td>
+        <td>@movie.Name</td>
+        <td>@movie.Genre</td>
+        <td>
+            <a class="btn btn-lg"
+               asp-page="./Detail"
+               asp-route-movieId="@movie.Id">
+                <i class="fa fa-search-plus"></i>
+            </a>
+        </td>
+        <td>
+            <a class="btn btn-lg"
+               asp-page="./Edit"
+               asp-route-movieId="@movie.Id">
+                <i class="fa fa-edit"></i>
+            </a>
+        </td>
+        <td>
+            <a class="btn btn-lg"
+               asp-page="./Delete"
+               asp-route-movieId="@movie.Id">
+                <i class="fa fa-trash"></i>
+            </a>
+        </td>
+    </tr>
+    }    
+</table>
+
+<a asp-page="./Edit" class="btn btn-primary">Add New</a>
